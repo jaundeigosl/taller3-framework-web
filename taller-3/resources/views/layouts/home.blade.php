@@ -1,5 +1,3 @@
-
-
 <header>
     @include("components/navbar")
     @include("components/main-title")
