@@ -1,27 +1,26 @@
 
 
 <header>
-    @include("components/navbar.php")
-    @include("components/main-title.php")
+    @include("components/navbar")
+    @include("components/main-title")
 </header>
 
 <section id="content-section">
     
     <div>
-        @include("components/section.php")
+        @include("components/section")
     </div>
     <div>
-        @include("components/side-menu.php")
+        @include("components/side-menu")
     </div>
 
 </section>
 
 <section>
     <footer>
-        @include("components/footer.php")
+        @include("components/footer")
     </footer>
 </section>
 
-    
 </body>
 </html>
