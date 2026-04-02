@@ -2,7 +2,7 @@
     @include("components/navbar")
 
     <div class="max-w-7xl mx-auto px-4 py-6 md:px-6">
-        <h1 class="text-2xl font-semibold text-slate-900">Panel de Administración</h1>
+        <h1 class="text-2xl font-semibold text-slate-900">Sistema de Administracion de Personas</h1>
         @include("components/main-title")
     </div>
 </header>
@@ -24,7 +24,7 @@
 
 <section class="mt-auto border-t border-slate-200 bg-white">
     <footer class="max-w-7xl mx-auto px-4 py-8 md:px-6 text-center text-sm text-slate-500">
-        <p>&copy; 2023 Sistema de Emparedados al Vapor. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Todos los derechos reservados.</p>
         @include("components/footer")
     </footer>
 </section>
