@@ -12,7 +12,7 @@
         </style>
     @endif
 </head>
-<body>
+<body class="bg-slate-50 font-sans antialiased text-slate-900 min-h-screen flex flex-col">
 
     @include("layouts/home")
 
