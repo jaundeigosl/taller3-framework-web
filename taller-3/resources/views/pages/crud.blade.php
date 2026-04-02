@@ -1,7 +1,7 @@
 @php
-$section_title = "Conoce nuestro sistema de almacenamiento de datos";
-$section_content = "En este sistema podras almacenar datos sobre presonas, tales como sus correos, diferentes numeros de telefono, direcciones de trabajo y vivienda.";
-$page_title = "Sistema de Administracion de Personas";
+$section_title = "Administracion de usuarios";
+$section_content = "En esta seccion se pueden realizar operaciones para crear usuarios, modificarlos o eliminarlos";
+$page_title = "Sistema de Administracion de Personas - Seccion Administrativa";
 @endphp
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ $page_title = "Sistema de Administracion de Personas";
 </head>
 <body class="bg-slate-50 font-sans antialiased text-slate-900 min-h-screen flex flex-col">
 
-    @include("layouts/home", ['section_title' => $section_title, 'section_content' => $section_content , 'main_title' => $page_title])
+   @include("layouts/home", ['section_title' => $section_title, 'section_content' => $section_content , 'main_title' => $page_title])
 
 </body>
 </html>
