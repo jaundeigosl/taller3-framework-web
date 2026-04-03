@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use app\Models\Email;
-use app\Models\Phone;
-use app\Models\PersonalData;
+use App\Models\Email;
+use App\Models\Phone;
+use App\Models\PersonalData;
 
 class User extends Authenticatable
 {

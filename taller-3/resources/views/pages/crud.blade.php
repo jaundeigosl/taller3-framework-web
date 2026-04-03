@@ -1,3 +1,6 @@
+@php
+$page_title = "Sistema de Administracion de Personas";
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +17,7 @@
 </head>
 <body class="bg-slate-50 font-sans antialiased text-slate-900 min-h-screen flex flex-col">
 
-   @include("layouts/home", ['section_title' => $section_title, 'section_content' => $section_content , 'main_title' => $page_title])
+   @include("layouts/crud", ['main_title' => $page_title])
 
 </body>
 </html>

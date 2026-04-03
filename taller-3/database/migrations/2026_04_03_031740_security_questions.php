@@ -15,7 +15,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        SChema::create("security_response", function(Blueprint $table){
+        SChema::create("security_responses", function(Blueprint $table){
             $table->id();
             $table->foreignId("user_id")->constrained("users")->onDelete("cascade");
             $table->foreignId("question_id")->constrained(("security_questions"))->onDelete("cascade");
@@ -26,7 +26,7 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('security_questions');
         Schema::dropIfExists('security_response');
+        Schema::dropIfExists('security_questions');
     }
 };

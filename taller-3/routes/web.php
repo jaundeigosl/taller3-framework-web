@@ -5,33 +5,36 @@ use App\Http\Controllers\CrudController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 
+#rutas publicas
+
 #auth - login
-Route::get('/login', [LoginController::class , "index"] )->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'auth'])->name('login.auth');
+Route::get('/login/recovery', [LoginController::class, 'passwRecovery'])->name('login.recovery');
 
-Route::name("login.")->middleware("auth")->group( function(){
-    Route::post('/login', [LoginController::class , "auth"] )->name('auth');
-    Route::get('/login/recovery', [LoginController::class , "passwRecovery"] )->name('recovery');
-    Route::get('login/logout',[LoginController::class, 'logOut'])->name('logout');
-});
-
-#register
+#auth- register
 Route::name("register.")->group( function(){
-    Route::get('/register', [RegisterController::class , "index"] )->name('index');
-    Route::post('/register', [RegisterController::class , "register"] )->name('create');
+    Route::get('/register', [RegisterController::class, 'index'])->name('index');
+    Route::post('/register', [RegisterController::class, 'register'])->name('create');
 });
 
-#home
 Route::get('/', function () {
     return view('pages/index');
-})->name('/');
+})->name('home'); 
 
-#crud
-Route::name("crud.")->middleware("auth")->group( function(){
-    Route::get("/crud", function(){return view('pages/crud');})->name('index');
-    Route::get("/crud/read", [CrudController::class, 'read'])->name('read');
-    Route::post("/crud/add", [CrudController::class, 'add'])->name('add');
-    Route::post("/crud/put", [CrudController::class, 'put'])->name('put');
-    Route::get("/crud/delete", [CrudController::class, 'delete'])->name('delete');
+#rutas privadas
+
+Route::middleware("auth")->group( function(){
+    Route::get('/logout', [LoginController::class, 'logOut'])->name('login.logout');
+
+    Route::name("crud.")->group( function(){
+        Route::get("/crud", function(){return view('pages/crud');})->name('index');
+        Route::get("/crud/read", [CrudController::class, 'read'])->name('read');
+        Route::post("/crud/add", [CrudController::class, 'add'])->name('add');
+        Route::post("/crud/put", [CrudController::class, 'put'])->name('put');
+        Route::get("/crud/delete", [CrudController::class, 'delete'])->name('delete');
+    });
+
 });
 
 
