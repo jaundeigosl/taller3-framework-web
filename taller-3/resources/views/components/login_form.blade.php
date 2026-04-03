@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <a href="#">¿Recuperar contraseña?</a>
+                    <a href="{{ route('login.recovery_view') }}">¿Recuperar contraseña?</a>
                 </div>
 
                 <button 

@@ -16,10 +16,9 @@
                 </li>
             @else
                 <li class="col-span-1">
-                    <a href="{{ route('register.index') }}" class="block py-2 bg-white text-black font-semibold rounded-lg hover:bg-slate-700 hover:text-white transition-colors duration-300">Cerrar Sesion</a>
-                </li>
+                    <a href="{{route('login.logout') }}" class="block py-2 bg-white text-red-500 font-semibold rounded-lg hover:bg-slate-700 hover:text-white transition-colors duration-300">Cerrar Sesión</a>
+                </li>   
             @endif
-            
         </ul>
     </div>
 </nav>

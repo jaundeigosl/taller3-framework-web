@@ -10,7 +10,10 @@ use App\Http\Controllers\RegisterController;
 #auth - login
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'auth'])->name('login.auth');
-Route::get('/login/recovery', [LoginController::class, 'passwRecovery'])->name('login.recovery');
+Route::get('/login/recovery', [LoginController::class, 'recoveryView'])->name('login.recovery_view');
+Route::post('/login/recovery', [LoginController::class, 'recovery'])->name('login.recovery');
+Route::post('/login/validate_recovery', [LoginController::class, 'validateSecAnswer'])->name('login.recovery_question');
+Route::post('/login/new_password',[LoginController::class, 'newPassword'])->name('login.new_passowrd');
 
 #auth- register
 Route::name("register.")->group( function(){

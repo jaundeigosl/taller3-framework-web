@@ -6,17 +6,11 @@
     </div>
 </header>
 
-@if(session('success'))
-    <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 text-center font-semibold">
-        {{ session('success') }}
-    </div>
-@endif
-
 <section id="content-section"
     class="w-full p-8 md:p-6 my-8 flex flex-col-reverse md:flex-row gap-8 flex-grow">
 
     <div class="flex-1 space-y-8" >
-        @include("components/login_form")
+        @include("components/security_question_form")
     </div>
 
     <div class="w-full md:w-64 flex-shrink-0">
