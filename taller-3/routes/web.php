@@ -3,11 +3,22 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 #auth - login
 Route::get('/login', [LoginController::class , "index"] )->name('login');
-Route::post('/login', [LoginController::class , "auth"] )->name('login.auth');
 
+Route::name("login.")->middleware("auth")->group( function(){
+    Route::post('/login', [LoginController::class , "auth"] )->name('auth');
+    Route::get('/login/recovery', [LoginController::class , "passwRecovery"] )->name('recovery');
+    Route::get('login/logout',[LoginController::class, 'logOut'])->name('logout');
+});
+
+#register
+Route::name("register.")->group( function(){
+    Route::get('/register', [RegisterController::class , "index"] )->name('index');
+    Route::post('/register', [RegisterController::class , "register"] )->name('create');
+});
 
 #home
 Route::get('/', function () {

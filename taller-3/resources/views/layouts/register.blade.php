@@ -1,9 +1,3 @@
-@php
-    $content = $section_content;
-    $title = $section_title;
-    $main_title = $page_title;
-@endphp
-
 <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-slate-100">
     @include("components/navbar")
 
@@ -15,8 +9,8 @@
 <section id="content-section"
     class="w-full p-8 md:p-6 my-8 flex flex-col-reverse md:flex-row gap-8 flex-grow">
 
-    <div class="flex-1 space-y-8">
-        @include("components/section", ['title' => $title , 'content' => $content])
+    <div class="flex-1 space-y-8" >
+        @include("components/register_form")
     </div>
 
     <div class="w-full md:w-64 flex-shrink-0">

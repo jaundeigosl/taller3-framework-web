@@ -7,7 +7,11 @@ Class LoginController extends Controller{
         return view("pages/login");
     }
 
-    public function auht(){
+    public function auth(){
 
+    }
+
+    public function logOut(){
+        
     }
 }

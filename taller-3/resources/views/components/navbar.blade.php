@@ -10,9 +10,16 @@
             <li class="col-span-1">
                 <a href="#" class="block py-2 text-slate-200 font-semibold rounded-lg hover:bg-slate-700 hover:text-white transition-colors duration-300">Página 3</a>
             </li>
-            <li class="col-span-1">
-                <a href="#" class="block py-2 text-slate-200 font-semibold rounded-lg hover:bg-slate-700 hover:text-white transition-colors duration-300">Página 4</a>
-            </li>
+            @if (!Auth::user())
+                <li class="col-span-1">
+                    <a href="{{ route('register.index') }}" class="block py-2 bg-white text-black font-semibold rounded-lg hover:bg-slate-700 hover:text-white transition-colors duration-300">Registrarse</a>
+                </li>
+            @else
+                <li class="col-span-1">
+                    <a href="{{ route('register.index') }}" class="block py-2 bg-white text-black font-semibold rounded-lg hover:bg-slate-700 hover:text-white transition-colors duration-300">Cerrar Sesion</a>
+                </li>
+            @endif
+            
         </ul>
     </div>
 </nav>

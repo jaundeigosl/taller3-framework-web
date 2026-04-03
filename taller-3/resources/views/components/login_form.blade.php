@@ -1,6 +1,6 @@
 <div class="flex-grow flex items-center justify-center p-4">
     
-    <div class="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden ml-64">
         
         <div class="bg-slate-800 p-6 text-center">
             <h2 class="text-2xl font-bold text-white">Inicio de Sesion</h2>
