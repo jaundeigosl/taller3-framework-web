@@ -1,9 +1,3 @@
-@php
-$section_title = "Administracion de usuarios";
-$section_content = "En esta seccion se pueden realizar operaciones para crear usuarios, modificarlos o eliminarlos";
-$page_title = "Sistema de Administracion de Personas - Seccion Administrativa";
-@endphp
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

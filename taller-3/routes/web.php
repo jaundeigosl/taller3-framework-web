@@ -1,16 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\CrudController;
+use App\Http\Controllers\CrudController;
+use App\Http\Controllers\LoginController;
 
-Route::get('/login', function () {
-    return view('pages/login');
-})->name('login');
+#auth - login
+Route::get('/login', [LoginController::class , "index"] )->name('login');
+Route::post('/login', [LoginController::class , "auth"] )->name('login.auth');
 
+
+#home
 Route::get('/', function () {
     return view('pages/index');
 })->name('/');
 
+#crud
 Route::name("crud.")->middleware("auth")->group( function(){
     Route::get("/crud", function(){return view('pages/crud');})->name('index');
     Route::get("/crud/read", [CrudController::class, 'read'])->name('read');

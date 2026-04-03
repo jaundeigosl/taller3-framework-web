@@ -3,19 +3,19 @@
     <div class="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
         
         <div class="bg-slate-800 p-6 text-center">
-            <h2 class="text-2xl font-bold text-white">JyJ Emparedados</h2>
-            <p class="text-slate-300 text-sm mt-1">Ingresa al Sistema de Gestión</p>
+            <h2 class="text-2xl font-bold text-white">Inicio de Sesion</h2>
+            <p class="text-slate-300 text-sm mt-1">Ingresa las credenciales</p>
         </div>
 
         <div class="p-8">
-            <form action="{{ route('login.post') }}" method="POST" class="space-y-6">
+            <form action="{{ route('login.auth') }}" method="POST" class="space-y-6">
                 @csrf
 
                 <div>
                     <label for="username" class="block text-sm font-semibold text-slate-700 mb-2">
                         Nombre de Usuario
                     </label>
-                    <input type="text" id="username" name="username" required autofocusclass="w-full px-4 py-3 rounded-lg border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500 transition-colors"placeholder="Ej: jlopez"value="{{ old('username') }}">
+                    <input type="text" id="username" name="username" required autofocus class="w-full px-4 py-3 rounded-lg border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500 transition-colors"placeholder="Ej: jlopez"value="{{ old('username') }}">
                     @error('username')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
@@ -36,6 +36,10 @@
                         <input type="checkbox" name="remember" class="w-4 h-4 rounded border-slate-300 text-slate-800 focus:ring-slate-500">
                         <span class="ml-2">Recordar mi sesión</span>
                     </label>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <a href="#">¿Recuperar contraseña?</a>
                 </div>
 
                 <button 

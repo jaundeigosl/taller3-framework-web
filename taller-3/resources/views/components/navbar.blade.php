@@ -5,7 +5,7 @@
                 <a href="{{ route('/') }}"class="block py-2 text-slate-200 font-semibold rounded-lg hover:bg-slate-700 hover:text-white transition-colors duration-300">Home</a>
             </li>
             <li class="col-span-1">
-                <a href="{{ route('crud') }}" class="block py-2 text-slate-200 font-semibold rounded-lg hover:bg-slate-700 hover:text-white transition-colors duration-300">Administracion</a>
+                <a href="{{ route('crud.index') }}" class="block py-2 text-slate-200 font-semibold rounded-lg hover:bg-slate-700 hover:text-white transition-colors duration-300">Administracion</a>
             </li>
             <li class="col-span-1">
                 <a href="#" class="block py-2 text-slate-200 font-semibold rounded-lg hover:bg-slate-700 hover:text-white transition-colors duration-300">Página 3</a>

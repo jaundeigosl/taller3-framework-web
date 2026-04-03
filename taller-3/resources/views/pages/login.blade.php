@@ -1,3 +1,7 @@
+@php
+$page_title = "Sistema de Administracion de Personas - Inicio de Sesion";
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +18,7 @@
 </head>
 <body class="bg-slate-50 font-sans antialiased text-slate-900 min-h-screen flex flex-col">
 
-    @include("layouts/login")
+    @include("layouts/login", ['main_title' => $page_title])
 
 </body>
 </html>
