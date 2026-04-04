@@ -1,8 +1,7 @@
-Taller 3 - Framework Laravel
+# Taller 3 - Framework Laravel
 Autores: 
-Juan Suárez | C.I: 28.083.693
-
-Josué Carrión | C.I: 30.020.470
+* Juan Suárez | C.I: 28.083.693
+* Josué Carrión | C.I: 30.020.470
 
 Este proyecto consiste en un sistema de gestión de personal con directorio de empleados, desarrollado bajo el framework Laravel, utilizando una arquitectura de base de datos normalizada para datos personales y de contacto.
 
