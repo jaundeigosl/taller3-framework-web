@@ -1,3 +1,6 @@
+Taller 3 - Framework
+Autores: Juan Suarez CI:28083693 y Josue Carrion CI:30.020.470
+
 Guía de Instalación y Despliegue: taller 3
 
 1. Requisitos Previos (Instalación de Herramientas):
