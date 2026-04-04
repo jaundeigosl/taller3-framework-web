@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\PersonalData;
 use App\Models\Phone;
 use App\Models\Email;
+use App\Models\SecurityQuestion;
+use App\Models\SecurityResponse;
 use Illuminate\Support\Facades\DB;
 
 class DatosSeeder extends Seeder
