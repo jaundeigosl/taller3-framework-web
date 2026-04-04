@@ -1,5 +1,5 @@
 @php
-$page_title = "Sistema de Administracion de Personas";
+$page_title = "Sistema de Administracion de Personas - Dashboard";
 @endphp
 <!DOCTYPE html>
 <html lang="en">
