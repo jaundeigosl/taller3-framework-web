@@ -1,59 +1,94 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Guía de Instalación y Despliegue: taller 3
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+1. Requisitos Previos (Instalación de Herramientas):
 
-## About Laravel
+A. Servidor Local (XAMPP)
+XAMPP nos proporciona el servidor Apache y la base de datos MySQL.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Descarga XAMPP desde apachefriends.org.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Instálalo y asegúrate de activar los módulos Apache y MySQL desde el Panel de Control de XAMPP.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Importante: Verifica que tu versión de PHP sea la 8.2 o superior, necesaria para Laravel 12.
 
-## Learning Laravel
+B. Manejador de Dependencias (Composer)
+Composer es la herramienta que descarga todas las librerías de Laravel.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Descarga e instala desde getcomposer.org.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Durante la instalación, te pedirá la ruta del ejecutable de PHP (generalmente C:\xampp\php\php.exe).
 
-## Laravel Sponsors
+C. Entorno de Node.js (Vite/Tailwind)
+Como el proyecto usa Tailwind CSS, necesitamos Node.js para compilar los estilos.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Descarga la versión LTS de nodejs.org.
 
-### Premium Partners
+2. Configuración del Proyecto
+Una vez instaladas las herramientas, sigue estos pasos en tu terminal (CMD, PowerShell o la terminal de VS Code):
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Paso 1: Clonar e instalar dependencias
+Bash
+# Instalar librerías de PHP
+composer install
 
-## Contributing
+# Instalar librerías de JavaScript (Tailwind CSS)
+npm install
+Paso 2: Configurar el archivo de entorno
+Copia el archivo de ejemplo .env.example y cámbiale el nombre a .env. Luego, genera la clave de seguridad:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Bash
+php artisan key:generate
 
-## Code of Conduct
+Paso 3: Configurar la Base de Datos
+Abre tu archivo .env y busca las líneas de conexión. Cámbialas según tu configuración de XAMPP (por defecto es así):
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Fragmento de código
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=taller
+DB_USERNAME=root
+DB_PASSWORD=
 
-## Security Vulnerabilities
+Nota: al ejecutar la migracion, esta creara automaticamente la base de datos
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. Base de Datos: Migraciones y Seeders
+Aquí es donde creamos las tablas y cargamos los datos de prueba que hemos programado.
 
-## License
+Ejecutar Migraciones
+Esto creará las tablas users, personal_data, phones y emails con sus relaciones en cascada.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Bash
+php artisan migrate
+Poblado de Datos (Seeders)
+Hemos unificado la lógica para que el sistema tenga un administrador y 20 empleados con sus contactos vinculados.
+
+Bash
+# Ejecuta el seeder que crea el admin y los 20 empleados
+php artisan db:seed
+
+4. Ejecución del Sistema
+Para ver el proyecto funcionando, necesitas mantener dos terminales abiertas:
+
+Terminal 1 (Servidor PHP):
+
+Bash
+php artisan serve
+Esto te dará una URL, usualmente http://127.0.0.1:8000.
+
+Terminal 2 (Compilación de Estilos):
+
+Bash
+npm run dev
+Esto es vital para que Tailwind CSS y el Side Menu Sticky se vean correctamente.
+
+5. Usuario de Acceso
+
+Login con el usuario admin y clave 123456.
+
+NOTAS: 
+Puede crear otro usuario administrar diferente al ya existente pero los 20 registros de personas estan asociados al usuario que se crea por defecto.
+Si de igual manera desea probar el registro, todas las funcionalidades del CRUD siguen disponibles.
+El formato de teléfono es: 0000-0000000 (obligatorio el guion).
+
+
