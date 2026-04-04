@@ -1,49 +1,46 @@
-Taller 3 - Framework
-Autores: Juan Suarez CI:28083693 y Josue Carrion CI:30.020.470
+Aquí tienes una versión mejorada, más profesional y estructurada del archivo README.md. He corregido la redacción, organizado los pasos de forma lógica (especialmente la advertencia crítica sobre el archivo .env) y añadido detalles técnicos que facilitarán la ejecución a terceros.
 
-Guía de Instalación y Despliegue: taller 3
+🚀 Taller 3 - Framework Laravel
+Autores: * Juan Suárez | C.I: 28.083.693
 
-1. Requisitos Previos (Instalación de Herramientas):
+Josué Carrión | C.I: 30.020.470
 
-A. Servidor Local (XAMPP)
-XAMPP nos proporciona el servidor Apache y la base de datos MySQL.
+Este proyecto consiste en un sistema de gestión de personal con directorio de empleados, desarrollado bajo el framework Laravel, utilizando una arquitectura de base de datos normalizada para datos personales y de contacto.
 
-Descarga XAMPP desde apachefriends.org.
+🛠 1. Requisitos Previos
+Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas en tu entorno local:
 
-Instálalo y asegúrate de activar los módulos Apache y MySQL desde el Panel de Control de XAMPP.
+XAMPP: Proporciona Apache y MySQL.
 
-Importante: Verifica que tu versión de PHP sea la 8.2 o superior, necesaria para Laravel 12.
+Versión de PHP: Debe ser 8.2 o superior (requerido para Laravel 11/12).
 
-B. Manejador de Dependencias (Composer)
-Composer es la herramienta que descarga todas las librerías de Laravel.
+Composer: Manejador de dependencias de PHP.
 
-Descarga e instala desde getcomposer.org.
+Node.js (LTS): Necesario para compilar los estilos con Vite y Tailwind CSS.
 
-Durante la instalación, te pedirá la ruta del ejecutable de PHP (generalmente C:\xampp\php\php.exe).
+⚙️ 2. Configuración del Proyecto
+Sigue estos pasos en tu terminal (CMD, PowerShell o Terminal de VS Code) para preparar el entorno:
 
-C. Entorno de Node.js (Vite/Tailwind)
-Como el proyecto usa Tailwind CSS, necesitamos Node.js para compilar los estilos.
-
-Descarga la versión LTS de nodejs.org.
-
-2. Configuración del Proyecto
-Una vez instaladas las herramientas, sigue estos pasos en tu terminal (CMD, PowerShell o la terminal de VS Code):
-
-Paso 1: Clonar e instalar dependencias
+Paso 1: Instalar Dependencias
 Bash
 # Instalar librerías de PHP
 composer install
 
-# Instalar librerías de JavaScript (Tailwind CSS)
+# Instalar librerías de JavaScript y Tailwind CSS
 npm install
-Paso 2: Configurar el archivo de entorno
-Copia el archivo de ejemplo .env.example y cámbiale el nombre a .env. Luego, genera la clave de seguridad:
+Paso 2: Preparar el Archivo de Entorno (.env)
+⚠️ IMPORTANTE: Laravel requiere un archivo .env para funcionar. Si acabas de clonar el proyecto, este archivo no existe. Debes crearlo antes de generar la clave de la aplicación.
+
+Copia el archivo de ejemplo:
+
+Bash
+cp .env.example .env
+Genera la clave de seguridad de la aplicación:
 
 Bash
 php artisan key:generate
-
 Paso 3: Configurar la Base de Datos
-Abre tu archivo .env y busca las líneas de conexión. Cámbialas según tu configuración de XAMPP (por defecto es así):
+Abre el archivo .env recién creado y configura tus credenciales de MySQL (XAMPP por defecto):
 
 Fragmento de código
 DB_CONNECTION=mysql
@@ -52,46 +49,40 @@ DB_PORT=3306
 DB_DATABASE=taller
 DB_USERNAME=root
 DB_PASSWORD=
+Nota: Laravel intentará crear automáticamente la base de datos taller si no existe al momento de migrar.
 
-Nota: al ejecutar la migracion, esta creara automaticamente la base de datos
+🗄️ 3. Base de Datos: Estructura y Datos
+El proyecto utiliza una arquitectura de tablas relacionadas (users, personal_data, phones, emails) con borrado en cascada para garantizar la integridad.
 
-3. Base de Datos: Migraciones y Seeders
-Aquí es donde creamos las tablas y cargamos los datos de prueba que hemos programado.
-
-Ejecutar Migraciones
-Esto creará las tablas users, personal_data, phones y emails con sus relaciones en cascada.
-
-Bash
-php artisan migrate
-Poblado de Datos (Seeders)
-Hemos unificado la lógica para que el sistema tenga un administrador y 20 empleados con sus contactos vinculados.
+Migraciones y Poblado (Seeders)
+Ejecuta el siguiente comando para crear las tablas y cargar los 20 registros de prueba de una sola vez:
 
 Bash
-# Ejecuta el seeder que crea el admin y los 20 empleados
-php artisan db:seed
+php artisan migrate --seed
+Si deseas ejecutar solo los datos de prueba después de migrar: php artisan db:seed.
 
-4. Ejecución del Sistema
-Para ver el proyecto funcionando, necesitas mantener dos terminales abiertas:
+💻 4. Ejecución del Sistema
+Para que el sistema funcione correctamente (estilos y backend), debes mantener dos terminales activas:
 
-Terminal 1 (Servidor PHP):
+Terminal 1 (Servidor): php artisan serve
 
-Bash
-php artisan serve
-Esto te dará una URL, usualmente http://127.0.0.1:8000.
+(Accede mediante: http://127.0.0.1:8000)
 
-Terminal 2 (Compilación de Estilos):
+Terminal 2 (Estilos/Vite): npm run dev
 
-Bash
-npm run dev
-Esto es vital para que Tailwind CSS y el Side Menu Sticky se vean correctamente.
+(Indispensable para que el Side Menu y Tailwind carguen correctamente).
 
-5. Usuario de Acceso
+🔑 5. Acceso y Uso
+Credenciales por Defecto
+Usuario: admin
 
-Login con el usuario admin y clave 123456.
+Clave: 123456
 
-NOTAS: 
-Puede crear otro usuario administrar diferente al ya existente pero los 20 registros de personas estan asociados al usuario que se crea por defecto.
-Si de igual manera desea probar el registro, todas las funcionalidades del CRUD siguen disponibles.
-El formato de teléfono es: 0000-0000000 (obligatorio el guion).
+Notas de Funcionamiento
+Asociación de Datos: Los 20 registros generados por el Seeder están asociados directamente al usuario admin creado por defecto.
+
+CRUD Libre: Puedes registrar nuevos usuarios administradores, pero estos iniciarán con su propio directorio vacío. No obstante, todas las funciones de creación, edición y eliminación de empleados están totalmente operativas.
+
+Regla de Teléfono: Para cumplir con las validaciones de seguridad, los teléfonos deben seguir estrictamente el formato 0000-0000000 (incluyendo el guion).
 
 
