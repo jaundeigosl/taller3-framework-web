@@ -17,7 +17,19 @@ class DatosSeeder extends Seeder
 
         $creador = User::firstOrCreate(
             ['username' => 'admin'], 
-            ['password' => '123456']
+            ['password' => Hash::make('123456')]
+        );
+
+        $pregunta = SecurityQuestion::firstOrCreate(
+            ['pregunta' => '¿Cuál es el nombre de tu primera mascota?']
+        );
+
+        SecurityResponse::firstOrCreate(
+            ['user_id' => $creador->id],
+            [
+                'question_id' => $pregunta->id,
+                'respuesta' => 'pelusa'
+            ]
         );
 
         $json = '{

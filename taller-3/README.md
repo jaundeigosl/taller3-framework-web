@@ -74,6 +74,8 @@ Credenciales por Defecto
 
 * Usuario: admin
 * Clave: 123456
+* Pregunta de seguridad:¿Cuál es el nombre de tu primera mascota?
+* Respuesta de seguridad: pelusa
 
 Notas de Funcionamiento
 Asociación de Datos: Los 20 registros generados por el Seeder están asociados directamente al usuario admin creado por defecto.
