@@ -1,7 +1,6 @@
-Aquí tienes una versión mejorada, más profesional y estructurada del archivo README.md. He corregido la redacción, organizado los pasos de forma lógica (especialmente la advertencia crítica sobre el archivo .env) y añadido detalles técnicos que facilitarán la ejecución a terceros.
-
-🚀 Taller 3 - Framework Laravel
-Autores: * Juan Suárez | C.I: 28.083.693
+Taller 3 - Framework Laravel
+Autores: 
+Juan Suárez | C.I: 28.083.693
 
 Josué Carrión | C.I: 30.020.470
 
