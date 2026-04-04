@@ -11,7 +11,7 @@
             </p>
         </section>
         <section>
-            <img src="https://via.placeholder.com/600x400/1e293b/cbd5e1?text=Imagen+del+Producto" alt="Imagen" class="w-full h-auto rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+            <img src={{ url('images/pantalla-del-panel-de-análisis-de-datos-inversión-empresarial-y-financiera-infografía-de-hud.webp') }} alt="Analisis de datos" class="w-full h-auto rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
         </section>
 
     </div>

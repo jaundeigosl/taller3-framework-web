@@ -43,7 +43,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId("data_id")->constrained("personal_data")->onDelete("cascade");
             $table->string("correo_principal");
-            $table->string("correo_secundario");
+            $table->string("correo_secundario")->nullable();
             $table->timestamps();
         });
 

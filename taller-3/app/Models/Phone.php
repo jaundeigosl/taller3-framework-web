@@ -8,6 +8,7 @@ class Phone extends Model
 {
 
     protected $fillable = [
+        'data_id',
         'telefono_principal',
         'telefono_secundario'
     ];

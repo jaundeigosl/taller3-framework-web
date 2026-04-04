@@ -5,7 +5,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use App\Models\PersonalData; 
+use App\Models\PersonalData;
+use App\Models\Phone;
+use App\Models\Email;
+use Illuminate\Support\Facades\DB;
 
 class DatosSeeder extends Seeder
 {
@@ -14,7 +17,7 @@ class DatosSeeder extends Seeder
 
         $creador = User::firstOrCreate(
             ['username' => 'admin'], 
-            ['password' => '123456'] 
+            ['password' => '123456']
         );
 
         $json = '{
@@ -48,7 +51,7 @@ class DatosSeeder extends Seeder
             
             $generoFormateado = strtoupper(substr($persona['genero'], 0, 1));
 
-            PersonalData::create([
+            $nuevoRegistro = PersonalData::create([
                 'user_id'      => $creador->id,
                 'cedula'       => $persona['cedula'],
                 'nombre'       => $persona['nombre'],
@@ -58,6 +61,19 @@ class DatosSeeder extends Seeder
                 'estado_civil' => $persona['estadoCivil'],
                 'direccion'    => $persona['direccion'],
                 'cargo'        => $persona['cargo'],
+            ]);
+
+            Phone::create([
+                'data_id' => $nuevoRegistro->id,
+                'telefono_principal' => '0414-' . str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT),
+                'telefono_secundario' => '0241-' . str_pad(rand(1, 9999999), 7, '0', STR_PAD_LEFT),
+            ]);
+
+            $emailBase = strtolower($persona['nombre'] . '.' . $persona['apellido'] . '@example.com');
+            Email::create([
+                'data_id' => $nuevoRegistro->id,
+                'correo_principal' => $emailBase,
+                'correo_secundario' => 'backup.' . $emailBase,
             ]);
         }
     }

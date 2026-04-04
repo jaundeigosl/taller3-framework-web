@@ -15,18 +15,15 @@ Class LoginController extends Controller{
     public function login(){
         return view("pages/login");
     }
-    public function index(){
-        return view("pages/dashboard");
-    }
+
     public function auth(Request $request){
 
         $credentials = $request->validate([
             'username' => 'required|string',
             'password' => 'required|string',
         ]);
-        $remember = $request->boolean('remember');
 
-        if (Auth::attempt($credentials, $remember)) {
+        if (Auth::attempt($credentials)) {
             
             $request->session()->regenerate();
             return redirect()->intended(route('crud.index')); 

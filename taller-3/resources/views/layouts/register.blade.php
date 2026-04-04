@@ -14,7 +14,7 @@
     </div>
 
     <div class="w-full md:w-64 flex-shrink-0">
-        <div class="md:sticky md:top-28">
+        <div class="md:sticky md:top-46">
             @include("components/side-menu")
         </div>
     </div>

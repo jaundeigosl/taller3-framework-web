@@ -8,6 +8,7 @@ class PersonalData extends Model
 {
 
     protected $fillable = [
+        'user_id',
         'cedula',
         'nombre',
         'apellido',
@@ -17,5 +18,15 @@ class PersonalData extends Model
         'direccion',
         'cargo'
     ];
+
+    public function phone()
+    {
+        return $this->hasOne(Phone::class, 'data_id');
+    }
+
+    public function email()
+    {
+        return $this->hasOne(Email::class, 'data_id');
+    }
 
 }

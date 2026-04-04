@@ -8,6 +8,7 @@ class Email extends Model
 {
 
     protected $fillable = [
+        'data_id',
         'correo_principal',
         'correo_secundario'
     ];

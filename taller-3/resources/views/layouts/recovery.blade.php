@@ -14,11 +14,11 @@
     </div>
 
     <div class="w-full md:w-64 flex-shrink-0">
-        <div class="md:sticky md:top-28">
+        <div class="md:sticky md:top-46">
             @include("components/side-menu")
         </div>
     </div>
-
+    
 </section>
 
 <section class="mt-auto border-t border-slate-200 bg-white">

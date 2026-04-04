@@ -32,13 +32,6 @@
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <label class="flex items-center text-sm text-slate-600 cursor-pointer">
-                        <input type="checkbox" name="remember" class="w-4 h-4 rounded border-slate-300 text-slate-800 focus:ring-slate-500">
-                        <span class="ml-2">Recordar mi sesión</span>
-                    </label>
-                </div>
-
-                <div class="flex items-center justify-between">
                     <a href="{{ route('login.recovery_view') }}">¿Recuperar contraseña?</a>
                 </div>
 

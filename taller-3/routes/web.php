@@ -31,9 +31,8 @@ Route::middleware("auth")->group( function(){
     Route::get('/logout', [LoginController::class, 'logOut'])->name('login.logout');
 
     Route::name("crud.")->group( function(){
-        Route::get("/crud", function(){return view('pages/crud');})->name('index');
-        Route::get("/crud/read", [CrudController::class, 'read'])->name('read');
-        Route::post("/crud/add", [CrudController::class, 'add'])->name('add');
+        Route::get("/crud", [CrudController::class, 'index'])->name('index');
+        Route::post("/crud/add", [CrudController::class, 'create'])->name('create');
         Route::post("/crud/put", [CrudController::class, 'put'])->name('put');
         Route::get("/crud/delete", [CrudController::class, 'delete'])->name('delete');
     });

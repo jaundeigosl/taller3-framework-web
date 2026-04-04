@@ -17,7 +17,7 @@ $page_title = "Sistema de Administracion de Personas - Dashboard";
 </head>
 <body class="bg-slate-50 font-sans antialiased text-slate-900 min-h-screen flex flex-col">
 
-   @include("layouts/crud", ['main_title' => $page_title])
+   @include("layouts/crud", ['main_title' => $page_title, 'datos' => $datos])
 
 </body>
 </html>
